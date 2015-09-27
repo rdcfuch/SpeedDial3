@@ -1,13 +1,16 @@
 package com.support.android.SpeedDial3;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,7 +37,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         this.myResource = resource;
         myInflater=LayoutInflater.from(myContext);
 //        this.myInflater = (LayoutInflater) myContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        tf = Typeface.createFromAsset(myContext.getAssets(), "fonts/Roboto-Regular.ttf");
+        tf = Typeface.createFromAsset(myContext.getAssets(), "fonts/Roboto-Regular.ttf");
     }
 
 
@@ -48,7 +51,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
 
 
     @Override
-    public void onBindViewHolder(myViewHolder _myHolder, int position) {
+    public void onBindViewHolder(myViewHolder _myHolder, final int position) {
         PhoneCallUnit _phone_unit = my_list.get(position);
         _myHolder._holderPhoneAlias.setText(_phone_unit.getPhoneAlias().toString());
         if (_phone_unit.getSimSlot() == 0)
@@ -73,8 +76,29 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         _myHolder._holderCardView.setOnClickListener(new MyOnClickListener(myContext, _phone_unit, position));
 
         _myHolder._holderCardView.setOnLongClickListener(new MyOnLongClickListener(myContext,_phone_unit,position));
-        //setting button????
-//        _myHolder._holderButton.setOnClickListener(new MyOnClickListener(myContext, _phone_unit, position));
+        //delete button????
+        _myHolder._holderDeletebtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder ADlgbuilder = new AlertDialog.Builder(myContext).setTitle("Delete Confirmation").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        my_list.remove(position);
+                        notifyDataSetChanged();
+                        dialog.dismiss();
+                    }
+                }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+
+                });
+                ADlgbuilder.create().show();;
+            }
+        });
     }
 
     @Override
@@ -116,6 +140,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         private TextView _holderPhoneAlias,_holderSimNum;
         private ImageView _holderSimImage;
         private CardView _holderCardView;
+        private ImageButton _holderDeletebtn;
 
 
 
@@ -124,12 +149,10 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
 //            this._holderButton = (Button) itemView.findViewById(R.id.Phone_setup_button);
             this._holderPhoneAlias = (TextView) itemView.findViewById(R.id.Phone_call_Name);
             this._holderSimNum = (TextView) itemView.findViewById(R.id.Phone_call_Sim);
-
-
-
             this._holderPhoneAlias.setTypeface(tf);
 //            this._holderSimImage = (ImageView) itemView.findViewById(R.id.simIcon);
             this._holderCardView = (CardView) itemView.findViewById(R.id.Phone_Call_card);
+            this._holderDeletebtn= (ImageButton) itemView.findViewById(R.id.Delete_Action_button);
         }
 
     }
