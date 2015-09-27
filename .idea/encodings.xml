@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/support/android/SpeedDial3/AddNewPhoneCall.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/support/android/SpeedDial3/Base64en_decode.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/support/android/SpeedDial3/ConfigPhoneCall.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/support/android/SpeedDial3/MyOnClickListener.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/support/android/SpeedDial3/MyRecycleViewAdapter.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/support/android/SpeedDial3/PhoneCallUnit.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/support/android/SpeedDial3/PreferenceSetting.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_config_layout.xml" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/phone_item.xml" charset="windows-1252" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

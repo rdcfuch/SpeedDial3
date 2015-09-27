@@ -1,0 +1,183 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="140dp">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="128dp"
+            android:background="#cb6a73ff"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp">
+
+            <TextView
+                android:id="@+id/config_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="Configure Speed Dial"
+                android:textColor="#FFF"
+                android:textSize="25dp" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="128dp"
+            android:background="#91ff0304" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/SD_Alias"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#01579b"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:gravity="left"
+        android:text="Speed Dial Alias:"
+        android:paddingLeft="4dp" />
+
+    <EditText
+        android:id="@+id/alias_edit"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:hint="phone alias"
+        android:layout_below="@id/SD_Alias"
+        android:textColor="#d90d601d"
+        android:singleLine="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textCursorDrawable="@null"
+        android:cursorVisible="true"
+        android:gravity="left"
+        android:inputType="text"
+        android:background="#160f1009"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/SD_number"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="#01579b"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:gravity="left"
+        android:text="Speed Dial number:" />
+
+    <EditText
+        android:id="@+id/phone_edit"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:hint="[0-9,#p]"
+        android:layout_below="@id/SD_number"
+        android:textColor="#d90d601d"
+        android:singleLine="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textCursorDrawable="@null"
+        android:cursorVisible="true"
+        android:gravity="left"
+        android:inputType="text"
+        android:background="#160f1009"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/SD_sim"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textColor="#01579b"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="left"
+        android:text="Choose which sim card (for dual card phone):" />
+
+    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/sim_Radio_Group"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <RadioButton
+            android:id="@+id/radio_sime_1"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="Sim Card 1"
+            android:textColor="#01579b"
+            android:layout_gravity="center_horizontal" />
+
+        <RadioButton
+            android:id="@+id/radio_sime_2"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="Sim Card 2"
+            android:textColor="#01579b"
+            android:layout_gravity="center_horizontal" />
+
+    </RadioGroup>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center|right">
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:background="#1E88E5"
+            android:text="CANCEL"
+            android:textAlignment="center"
+            android:clickable="true"
+            android:layout_toLeftOf="@+id/ok_btn"
+            android:gravity="center_horizontal" />
+
+        <Button
+            android:id="@+id/ok_btn"
+            android:layout_width="100dp"
+            android:layout_height="fill_parent"
+            android:background="#1E88E5"
+            android:text="OK"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:layout_gravity="right" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center|right">
+
+        <Button
+            android:id="@+id/delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ffff2825"
+            android:text="Delete"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
