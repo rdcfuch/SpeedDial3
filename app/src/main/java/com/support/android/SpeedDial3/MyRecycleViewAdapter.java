@@ -1,6 +1,7 @@
 package com.support.android.SpeedDial3;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -44,6 +45,8 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
 
     }
 
+
+
     @Override
     public void onBindViewHolder(myViewHolder _myHolder, int position) {
         PhoneCallUnit _phone_unit = my_list.get(position);
@@ -51,11 +54,21 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         if (_phone_unit.getSimSlot() == 0)
 
         {
-            _myHolder._holderSimImage.setImageResource(R.drawable.sim1);
+//            _myHolder._holderSimImage.setImageResource(R.drawable.sim1);
+            _myHolder._holderSimNum.setText("1");
+//            System.out.println("Height"+_myHolder._holderSimNum.getHeight());
         } else{
-            _myHolder._holderSimImage.setImageResource(R.drawable.sim2);
+//            _myHolder._holderSimImage.setImageResource(R.drawable.sim2);
+            _myHolder._holderSimNum.setText("2");
+//            _myHolder._holderSimNum.setWidth(_myHolder._holderSimNum.getHeight());
 
         }
+
+        if("1".equals(_myHolder._holderSimNum.getText())){
+            _myHolder._holderSimNum.setBackgroundColor(Color.parseColor("#FF28FF36"));
+        }
+
+
         // ???????ripple????icon?alias?ripple???
         _myHolder._holderCardView.setOnClickListener(new MyOnClickListener(myContext, _phone_unit, position));
 
@@ -97,20 +110,25 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
 
 
     public class myViewHolder extends RecyclerView.ViewHolder  {
-//        public LayoutRipple _holderRipple;
+        //        public LayoutRipple _holderRipple;
 //        public Button _holderButton;
 //        public ImageButton _holderButton;
-        private TextView _holderPhoneAlias;
+        private TextView _holderPhoneAlias,_holderSimNum;
         private ImageView _holderSimImage;
         private CardView _holderCardView;
+
 
 
         public myViewHolder(View itemView) {
             super(itemView);
 //            this._holderButton = (Button) itemView.findViewById(R.id.Phone_setup_button);
             this._holderPhoneAlias = (TextView) itemView.findViewById(R.id.Phone_call_Name);
+            this._holderSimNum = (TextView) itemView.findViewById(R.id.Phone_call_Sim);
+
+
+
             this._holderPhoneAlias.setTypeface(tf);
-            this._holderSimImage = (ImageView) itemView.findViewById(R.id.simIcon);
+//            this._holderSimImage = (ImageView) itemView.findViewById(R.id.simIcon);
             this._holderCardView = (CardView) itemView.findViewById(R.id.Phone_Call_card);
         }
 
