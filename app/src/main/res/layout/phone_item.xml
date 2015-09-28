@@ -81,7 +81,12 @@
                 android:src="@drawable/ic_action_discard"
                 android:gravity="right"
                 android:layout_gravity="center"
-                android:id="@+id/Delete_Action_button" />
+                android:id="@+id/Delete_Action_button"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="3dp" />
         </LinearLayout>
 
     </LinearLayout>

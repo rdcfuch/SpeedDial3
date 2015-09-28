@@ -65,7 +65,7 @@ public class AddNewPhoneCall extends AppCompatActivity {
         mPCU.setPhoneNumber("[0-9],p#");
         mPCU.setSimSlot(0);
 
-        //tf = Typeface.createFromAsset(this.getAssets(), "fonts/RobotoThin.ttf");
+        tf = Typeface.createFromAsset(this.getAssets(), "fonts/RobotoThin.ttf");
 
         title = (TextView)findViewById(R.id.adding_title);
         title.setTypeface(tf);
