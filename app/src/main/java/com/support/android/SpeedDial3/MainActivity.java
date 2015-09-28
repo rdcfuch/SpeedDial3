@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     public List<PhoneCallUnit> myList;
     public MyRecycleViewAdapter myRecAdapter;
     public RecyclerView phone_list_view;
-    public FloatingActionButton myFloatBtn, tempFB;
+    public FloatingActionButton myFloatBtn, tmpFB;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,8 +95,9 @@ public class MainActivity extends AppCompatActivity {
         phone_list_view = (RecyclerView) findViewById(R.id.phoneListView);
         myRecAdapter = new MyRecycleViewAdapter(this, R.layout.phone_item, myList);
         phone_list_view.setAdapter(myRecAdapter);
-        RecyclerView.LayoutManager myLM = new LinearLayoutManager(this);
-        phone_list_view.setLayoutManager(myLM);
+
+//        RecyclerView.LayoutManager myLM = new LinearLayoutManager(this);
+        phone_list_view.setLayoutManager(new LinearLayoutManager(this));
         phone_list_view.setItemAnimator(new DefaultItemAnimator());
 
 
@@ -105,9 +106,10 @@ public class MainActivity extends AppCompatActivity {
 
         myFloatBtn = (FloatingActionButton) findViewById(R.id.addPhoneNumFab);
         myFloatBtn.setOnClickListener(phoneCallButton_listener);
-//
-//        tempFB= (FloatingActionButton) findViewById(R.id.appbar);
-//        tempFB.setOnClickListener(phoneCallButton_listener);
+
+
+        tmpFB= (FloatingActionButton) findViewById(R.id.appbarBtn);
+        tmpFB.setOnClickListener(new MyOnClickListener(this,phone_list_view));
 
 
     }

@@ -5,6 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
@@ -20,6 +24,7 @@ public class MyOnClickListener implements OnClickListener {
     private Activity mActivity;
     private PreferenceSetting mSetting;
     private PhoneCallUnit _phoneUnit;
+    private RecyclerView _rv;
     private int listIndex = 0;
 
     public MyOnClickListener(Context _mCon) {
@@ -35,6 +40,12 @@ public class MyOnClickListener implements OnClickListener {
         this.mContext = _mCon;
         this._phoneUnit = inputObject;
         this.listIndex = _inex;
+    }
+
+    MyOnClickListener(Context _mCon,RecyclerView rv){
+        super();
+        this.mContext=_mCon;
+        this._rv=rv;
     }
 
     @Override
@@ -65,12 +76,13 @@ public class MyOnClickListener implements OnClickListener {
                 addPhoneCall();
                 break;
 
-            case R.id.appbar:
-                Intent intent = new Intent(mContext, CheeseDetailActivity.class);
-                intent.putExtra(CheeseDetailActivity.EXTRA_NAME, "testAAAAAAA");
-
-                mContext.startActivity(intent);
+            case R.id.appbarBtn:
+                //Intent intent = new Intent(mContext, CheeseDetailActivity.class);
+                //intent.putExtra(CheeseDetailActivity.EXTRA_NAME, "testAAAAAAA");
+                _rv.setLayoutManager(new GridLayoutManager(mContext, 2));;
                 break;
+
+
 
         }
 
