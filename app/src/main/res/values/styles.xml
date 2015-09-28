@@ -35,4 +35,9 @@
         <item name="android:orientation">vertical</item>
     </style>
 
+
+    <style name="TextAppearence.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#FF4081</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

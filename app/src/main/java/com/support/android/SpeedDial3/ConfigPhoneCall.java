@@ -4,12 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.AppCompatEditText;
+
 
 import java.io.IOException;
 
@@ -33,7 +37,9 @@ public class ConfigPhoneCall extends Activity {
     private static final boolean TOGGLE_ON_CLICK = true;
 
 
-    private TextView title,aliasTV;
+//    private TextView title,aliasTV;
+    private AppCompatTextView title,aliasTV;
+//    private EditText aliasEdit;
     private EditText aliasEdit;
     private EditText phoneEdit;
     private Intent myIntent;
@@ -42,6 +48,7 @@ public class ConfigPhoneCall extends Activity {
     private int myIndex;
     private PhoneCallUnit mPCU;
     private Base64en_decode myendecoder;
+    private TextInputLayout aliasTIL,phoneTIL;
     private Typeface tf;
 
     @Override
@@ -73,20 +80,13 @@ public class ConfigPhoneCall extends Activity {
 
         tf = Typeface.createFromAsset(this.getAssets(), "fonts/RobotoThin.ttf");
 
-        title = (TextView)findViewById(R.id.config_title);
+        title = (AppCompatTextView) findViewById(R.id.config_title);
         title.setTypeface(tf);
 
-        aliasTV = (TextView)findViewById(R.id.SD_Alias);
-        aliasTV.setTypeface(tf);
+        aliasTIL= (TextInputLayout) findViewById(R.id.SDAliasLayout);
+        phoneTIL=(TextInputLayout) findViewById(R.id.phoneLayout);
+        phoneTIL.setErrorEnabled(true);
 
-        aliasTV = (TextView)findViewById(R.id.SD_number);
-        aliasTV.setTypeface(tf);
-
-
-        aliasTV = (TextView)findViewById(R.id.SD_sim);
-        aliasTV.setTypeface(tf);
-
-//        tf = Typeface.createFromAsset(this.getAssets(), "fonts/RobotoThin.ttf");
         aliasEdit = (EditText) findViewById(R.id.alias_edit);
         aliasEdit.setText(this.mPCU.getPhoneAlias());
         aliasEdit.setSelection(aliasEdit.getText().length());

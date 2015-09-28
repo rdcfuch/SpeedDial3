@@ -3,6 +3,7 @@ package com.support.android.SpeedDial3;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +44,7 @@ public class AddNewPhoneCall extends AppCompatActivity {
     private int myIndex;
     private PhoneCallUnit mPCU;
     private Base64en_decode myendecoder;
+    private TextInputLayout aliasTIL,phoneTIL;
     private Typeface tf;
 
 
@@ -70,24 +72,28 @@ public class AddNewPhoneCall extends AppCompatActivity {
         title = (TextView)findViewById(R.id.adding_title);
         title.setTypeface(tf);
 
-        aliasTV = (TextView)findViewById(R.id.SD_Alias);
-        aliasTV.setTypeface(tf);
+//        aliasTV = (TextView)findViewById(R.id.SD_Alias);
+//        aliasTV.setTypeface(tf);
+//
+//        aliasTV = (TextView)findViewById(R.id.SD_number);
+//        aliasTV.setTypeface(tf);
+//
+//
+//        aliasTV = (TextView)findViewById(R.id.SD_sim);
+//        aliasTV.setTypeface(tf);
 
-        aliasTV = (TextView)findViewById(R.id.SD_number);
-        aliasTV.setTypeface(tf);
 
-
-        aliasTV = (TextView)findViewById(R.id.SD_sim);
-        aliasTV.setTypeface(tf);
-
-
+        aliasTIL= (TextInputLayout) findViewById(R.id.SDAliasLayout);
+        phoneTIL=(TextInputLayout) findViewById(R.id.phoneLayout);
+        phoneTIL.setErrorEnabled(true);
         aliasEdit = (EditText) findViewById(R.id.alias_edit);
-        aliasEdit.setText(mPCU.getPhoneAlias());
-        aliasEdit.setSelection(aliasEdit.getText().length());
-
         phoneEdit = (EditText) findViewById(R.id.phone_edit);
-        phoneEdit.setText(mPCU.getPhoneNumber());
-        aliasEdit.setSelection(aliasEdit.getText().length());
+        phoneEdit.setError("Please put phone numbers [0-9] p #");
+        aliasEdit.setTypeface(tf);
+        phoneEdit.setTypeface(tf);
+
+
+
 
         aliasEdit.setTypeface(tf);
         phoneEdit.setTypeface(tf);
