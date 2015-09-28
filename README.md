@@ -1,16 +1,16 @@
-![alt text](https://raw.githubusercontent.com/chrisbanes/cheesesquare/master/art/icon.png)
+![alt text] https://github.com/rdcfuch/SpeedDial3/blob/master/app/src/main/res/drawable/laucher_phone.png
 
-Cheesesquare Sample
+Speed Dial 3.0 with Material Design
 ===================================
 
-Demos the new Android Design library. This is not an exhaustive sample, but shows
-some of the important features in the Design library:
+This is the evolved Speed Dial tool for my daily work, it's a practice of using material design
 
-- Collapsing Toolbar
-- FloatingActionButton
-- View anchoring
-- NavigationView
-- Snackbar
+- Create new Speed Dial
+- Config the Speed Dial
+- Delete the Speed Dial
+- use RecyclerView
+- use CardView
+- use TextInputLayout
 
 Pre-requisites
 --------------
