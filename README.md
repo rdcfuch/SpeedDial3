@@ -1,4 +1,4 @@
-![alt text] https://github.com/rdcfuch/SpeedDial3/blob/master/app/src/main/res/drawable/laucher_phone.png
+![alt text] (https://github.com/rdcfuch/SpeedDial3/blob/master/app/src/main/res/drawable/laucher_phone.png)
 
 Speed Dial 3.0 with Material Design
 ===================================
