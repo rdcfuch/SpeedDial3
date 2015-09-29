@@ -30,9 +30,6 @@ public class MyOnClickListener implements OnClickListener {
     public MyOnClickListener(Context _mCon) {
         super();
         this.mContext = _mCon;
-        //mSetting=new PreferenceSetting(_mCon);
-        //this.mActivity=_mAct;
-        //mSetting=new PreferenceSetting(_mCon);
     }
 
     MyOnClickListener(Context _mCon, PhoneCallUnit inputObject, int _inex) {
@@ -56,7 +53,6 @@ public class MyOnClickListener implements OnClickListener {
                 //Toast.makeText(mContext, "phone call name clicked", Toast.LENGTH_SHORT).show();
                 break;
 
-
 //            case R.id.Phone_setup_button:
 //                try {
 //                    this.editPhoneSetting(listIndex, this._phoneUnit);
@@ -77,8 +73,6 @@ public class MyOnClickListener implements OnClickListener {
                 break;
 
             case R.id.appbarBtn:
-                //Intent intent = new Intent(mContext, CheeseDetailActivity.class);
-                //intent.putExtra(CheeseDetailActivity.EXTRA_NAME, "testAAAAAAA");
                 _rv.setLayoutManager(new GridLayoutManager(mContext, 2));;
                 break;
 
@@ -94,7 +88,6 @@ public class MyOnClickListener implements OnClickListener {
         Intent phoneIntent;
 
         phoneIntent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + phoneNumber));
-//        ??
         // ???1, set "0" ????
         String[] dualSimTypes = {"subscription", "Subscription",
                 "com.android.phone.extra.slot",

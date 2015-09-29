@@ -72,17 +72,6 @@ public class AddNewPhoneCall extends AppCompatActivity {
         title = (TextView)findViewById(R.id.adding_title);
         title.setTypeface(tf);
 
-//        aliasTV = (TextView)findViewById(R.id.SD_Alias);
-//        aliasTV.setTypeface(tf);
-//
-//        aliasTV = (TextView)findViewById(R.id.SD_number);
-//        aliasTV.setTypeface(tf);
-//
-//
-//        aliasTV = (TextView)findViewById(R.id.SD_sim);
-//        aliasTV.setTypeface(tf);
-
-
         aliasTIL= (TextInputLayout) findViewById(R.id.SDAliasLayout);
         phoneTIL=(TextInputLayout) findViewById(R.id.phoneLayout);
         phoneTIL.setErrorEnabled(true);
@@ -91,9 +80,6 @@ public class AddNewPhoneCall extends AppCompatActivity {
         phoneEdit.setError("Please put phone numbers [0-9] p #");
         aliasEdit.setTypeface(tf);
         phoneEdit.setTypeface(tf);
-
-
-
 
         aliasEdit.setTypeface(tf);
         phoneEdit.setTypeface(tf);
@@ -114,10 +100,6 @@ public class AddNewPhoneCall extends AppCompatActivity {
         ok_B.setOnClickListener(new configOnClickListener());
         cancel_B.setOnClickListener(new configOnClickListener());
 
-        // Upon interacting with UI controls, delay any scheduled hide()
-        // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-
     }
 
 
@@ -130,8 +112,6 @@ public class AddNewPhoneCall extends AppCompatActivity {
                     mPCU.setPhoneNumber(phoneEdit.getText().toString());
                     mPCU.setSimSlot(simSlot);
 
-//                    //?????100 Index,
-//                    myBl.putInt("INDEX",100);
                     if (mPCU.getPhoneAlias().equalsIgnoreCase("Phone Name")&&mPCU.getPhoneNumber().equalsIgnoreCase("[0-9],p#") ) {
                         setResult(Activity.RESULT_CANCELED, myIntent);
                         finish();
@@ -183,9 +163,7 @@ public class AddNewPhoneCall extends AppCompatActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
-        // Trigger the initial hide() shortly after the activity has been
-        // created, to briefly hint to the user that UI controls
-        // are available.
+
     }
 }
 

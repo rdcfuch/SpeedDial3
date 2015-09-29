@@ -29,11 +29,8 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.AppCompatTextView;
 import android.view.Menu;
 import android.view.MenuItem;
-
-//import com.bumptech.glide.Glide;
 
 
 import java.io.IOException;
@@ -55,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        final String cheeseName = intent.getStringExtra(EXTRA_NAME);
-
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -64,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         collapsingToolbar.setTitle("Speed Dial");
-
-        //loadBackdrop();
 
 
         initData();
@@ -96,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
         myRecAdapter = new MyRecycleViewAdapter(this, R.layout.phone_item, myList);
         phone_list_view.setAdapter(myRecAdapter);
 
-//        RecyclerView.LayoutManager myLM = new LinearLayoutManager(this);
         phone_list_view.setLayoutManager(new LinearLayoutManager(this));
         phone_list_view.setItemAnimator(new DefaultItemAnimator());
 
@@ -124,10 +116,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    private void loadBackdrop() {
-//        final ImageView imageView = (ImageView) findViewById(R.id.backdrop);
-//        Glide.with(this).load(Cheeses.getRandomCheeseDrawable()).centerCrop().into(imageView);
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -139,8 +127,6 @@ public class MainActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         // TODO Auto-generated method stub
 
-        //Log.d("AAAAArequest code:   ", String.valueOf(requestCode));
-        //Log.d("AAAAAAresult code:   ", String.valueOf(resultCode));
 
         switch (requestCode) {
             case 1:
@@ -153,8 +139,6 @@ public class MainActivity extends AppCompatActivity {
 
                         mPCU = _myendecoder.readObject(_bundle.getString("OBJECT"));
                         int _index = _bundle.getInt("INDEX");
-//                        myList.set(_index, mPCU);
-//                        myAdapter.notifyDataSetChanged();
                         myRecAdapter.setItem(_index,mPCU);
                         my_setting.putRecordList(myList);
 
@@ -170,8 +154,6 @@ public class MainActivity extends AppCompatActivity {
                     if (resultCode == 5) {
                         Bundle _bundle = data.getExtras();
                         int _index = _bundle.getInt("INDEX");
-//                        myList.remove(_index);
-//                        myAdapter.notifyDataSetChanged();
                         myRecAdapter.deleteItem(_index);
                         my_setting.putRecordList(myList);
                     }
@@ -188,9 +170,6 @@ public class MainActivity extends AppCompatActivity {
 
                         mPCU = _myendecoder.readObject(_bundle.getString("OBJECT"));
                         myRecAdapter.addItem(mPCU);
-//                        myList.add(mPCU);
-                        //这里一定要重新设定一下动态的listView显示高度，不然看不到新加的那行
-//                        myAdapter.notifyDataSetChanged();
                         my_setting.putRecordList(myList);
                     } catch (IOException e) {
                         e.printStackTrace();
